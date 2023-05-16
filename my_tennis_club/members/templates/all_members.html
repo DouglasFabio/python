@@ -1,17 +1,20 @@
 <!DOCTYPE html>
+{% extends "master.html" %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Members</title>
+    <title>{% block title %}My Tennis Club - List of all Members {% endblock %}</title>
 </head>
 <body>
-    <h1>Members</h1>
-    <ul>
-        {% for x in mymembers %}
-            <li><a href="details/{{ x.id }}">{{ x.firstname }} {{ x.lastname }}</a></li>
-        {% endfor %}
-    </ul>
+    {% block content %}
+        <h1>Members</h1>
+        <ul>
+            {% for x in mymembers %}
+                <li><a href="details/{{ x.id }}">{{ x.firstname }} {{ x.lastname }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endblock %}
 </body>
 </html>
